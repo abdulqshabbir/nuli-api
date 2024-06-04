@@ -1,0 +1,11 @@
+type Query {
+  workouts: [Workout!]!
+}
+type Workout {
+  id: ID!
+  name: String!
+  description: String
+  # exercises: [Exercise!]!
+  createdAt: String!
+  updatedAt: String!
+}
