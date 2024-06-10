@@ -1,17 +1,12 @@
 import { Query, Resolver } from '@nestjs/graphql';
+import { WorkoutsService } from './workouts.service';
 
 @Resolver('Workout')
 export class WorkoutResolver {
+  constructor(private workoutsService: WorkoutsService) {}
   @Query()
-  workouts() {
-    return [
-      {
-        id: 1,
-        name: 'Test Workout 1',
-        description: 'Test workout 1 description',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ];
+  async workouts() {
+    const workouts = await this.workoutsService.getAll();
+    return workouts;
   }
 }

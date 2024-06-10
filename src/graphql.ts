@@ -12,12 +12,22 @@ export abstract class IQuery {
     abstract workouts(): Workout[] | Promise<Workout[]>;
 }
 
-export class Workout {
-    id: string;
+export class Exercise {
+    id: number;
     name: string;
-    description?: Nullable<string>;
-    createdAt: string;
-    updatedAt: string;
+    sets: number;
+    reps: string;
+    equipment?: Nullable<string>;
+    durationInMinutes: number;
+    workoutId: number;
+    exerciseGroup: string;
+}
+
+export class Workout {
+    id: number;
+    durationInMinutes: number;
+    numberOfExercises: number;
+    exercises: Exercise[];
 }
 
 type Nullable<T> = T | null;
