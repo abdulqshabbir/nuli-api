@@ -2,6 +2,10 @@ type Query {
   workouts: [Workout!]!
 }
 
+type Mutation {
+  swapExercises(workoutId: Int!, exerciseId: Int!): [Workout!]!
+}
+
 type Exercise {
   id: Int!
   name: String!
