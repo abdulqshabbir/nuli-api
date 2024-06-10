@@ -12,6 +12,10 @@ export abstract class IQuery {
     abstract workouts(): Workout[] | Promise<Workout[]>;
 }
 
+export abstract class IMutation {
+    abstract swapExercises(workoutId: number, exerciseId: number): Workout[] | Promise<Workout[]>;
+}
+
 export class Exercise {
     id: number;
     name: string;
