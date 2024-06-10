@@ -1,11 +1,21 @@
 type Query {
   workouts: [Workout!]!
 }
-type Workout {
-  id: ID!
+
+type Exercise {
+  id: Int!
   name: String!
-  description: String
-  # exercises: [Exercise!]!
-  createdAt: String!
-  updatedAt: String!
+  sets: Int!
+  reps: String!
+  equipment: String
+  durationInMinutes: Int!
+  workoutId: Int!
+  exerciseGroup: String!
+}
+
+type Workout {
+  id: Int!
+  durationInMinutes: Int!
+  numberOfExercises: Int!
+  exercises: [Exercise!]!
 }
