@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json', 'package.json', '.github/workflows/main.yml') }}
       - name: Install
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       - name: Build
         run: npm run build
 
